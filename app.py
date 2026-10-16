@@ -1,16 +1,4 @@
-"""
-Heart Disease Prediction — Streamlit app (v3, "Cardio Monitor" edition).
 
-The prediction pipeline is UNCHANGED from the original app:
-  raw inputs -> one-hot dict -> reindex to expected_columns -> scaler.transform
-  -> model.predict()
-
-v3 is a full visual redesign:
-  * Dark clinical-monitor theme with an animated ECG trace header
-  * Split layout: input console on the left, live result monitor on the right
-  * Tabbed input steps (Profile / Vitals / Cardiac tests)
-  * SVG risk gauge + vital readouts instead of plain progress bar
-"""
 
 import html
 from pathlib import Path
@@ -19,9 +7,9 @@ import joblib
 import pandas as pd
 import streamlit as st
 
-# -------------------------------------------------------------------
+
 # Page configuration
-# -------------------------------------------------------------------
+
 st.set_page_config(
     page_title="Cardio Monitor · Heart Disease Prediction",
     page_icon="🫀",
@@ -39,9 +27,8 @@ def html_block(markup: str) -> None:
 
 
 
-# -------------------------------------------------------------------
 # Load the EXISTING trained model and preprocessing artifacts.
-# -------------------------------------------------------------------
+
 @st.cache_resource
 def load_artifacts():
     model = joblib.load(MODEL_DIR / "LR_model_heart.pkl")
@@ -60,9 +47,8 @@ except Exception as exc:  # noqa: BLE001
     load_error = str(exc)
 
 
-# -------------------------------------------------------------------
 # Styling — dark "cardio monitor" theme
-# -------------------------------------------------------------------
+
 html_block(
     """
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -364,10 +350,8 @@ html_block(
     """,
     )
 
-
-# -------------------------------------------------------------------
 # Header
-# -------------------------------------------------------------------
+
 status_html = (
     '<span class="blink"></span>MODEL ONLINE'
     if artifacts_loaded
@@ -410,9 +394,9 @@ if not artifacts_loaded:
         st.code(load_error or "")
 
 
-# -------------------------------------------------------------------
+
 # Layout: input console (left) + result monitor (right)
-# -------------------------------------------------------------------
+
 left = st.container()
 right = st.container()
 
@@ -487,10 +471,10 @@ with left:
         )
 
 
-# -------------------------------------------------------------------
+
 # Prediction pipeline (UNCHANGED): raw inputs -> one-hot -> expected
 # column order -> scaler.transform -> model.predict
-# -------------------------------------------------------------------
+
 def build_input_frame(v: dict) -> pd.DataFrame:
     raw_input = {
         "Age": v["age"],
@@ -529,9 +513,9 @@ def run_prediction(v: dict):
     return prediction, probability
 
 
-# -------------------------------------------------------------------
+
 # Result monitor rendering
-# -------------------------------------------------------------------
+
 def gauge_svg(p: float, color: str) -> str:
     """Semi-circular gauge, p in [0, 1]."""
     p = min(max(p, 0.0), 1.0)
