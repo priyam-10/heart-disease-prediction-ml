@@ -10,9 +10,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Accuracy](https://img.shields.io/badge/Accuracy-86.96%25-2BF5A0?style=for-the-badge)](#-model-comparison)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/priyam-10/heart-disease-prediction-ml?style=for-the-badge&logo=github)](https://github.com/priyam-10/heart-disease-prediction-ml/stargazers)
-[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+
 
 [**🚀 Try the Live App**](https://cardio-monitor-ml.streamlit.app) · [Report a Bug](https://github.com/priyam-10/heart-disease-prediction-ml/issues) · [Request a Feature](https://github.com/priyam-10/heart-disease-prediction-ml/issues)
 
