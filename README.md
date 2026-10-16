@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Cardio Monitor Banner" width="100%"/>
 
 # 🫀 Cardio Monitor — Heart Disease Prediction
 
